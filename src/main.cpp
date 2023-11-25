@@ -2,11 +2,11 @@
 
 #include <GLFW/glfw3.h>
 #include <chrono>
-#include <glad/gl.h>
+#include <glad/glad.h>
 #include <glm/glm.hpp>
 #include <imgui.h>
-#include <imgui_impl_glfw.h>
-#include <imgui_impl_opengl3.h>
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
 #include <iostream>
 #include <thread>
 
@@ -109,7 +109,7 @@ int main(int argc, char *argv[]) {
   glfwMakeContextCurrent(window);
   glfwSwapInterval(1);
 
-  if (!gladLoaderLoadGL())
+  if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     throw std::runtime_error("Error initializing glad");
 
   /**
